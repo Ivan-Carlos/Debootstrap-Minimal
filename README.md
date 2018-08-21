@@ -88,8 +88,8 @@ Oracle Virtual Box Wm
 
 -   $ apt-get install --no-install-recommends sudo
 -   $ adduser user
--   passwd config
--   passwd confirm
+-   password config
+-   password confirm
 -   Full Name [ ]: user
 -   Room Number [ ]: enter
 -   Work Phone [ ]: enter
@@ -124,8 +124,8 @@ Oracle Virtual Box Wm
 -   In the box grub-pc make the first two options
 
 -   $ passwd
--   passwd config
--   passwd confirm
+-   password config
+-   password confirm
 
 -   Optional
 -   $ update-initramfs -u -k all
