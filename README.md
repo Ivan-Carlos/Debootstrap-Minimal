@@ -22,8 +22,8 @@ Oracle Virtual Box Wm
 -   $ sudo apt-get install --no-install-recommends git
 -   $ sudo apt-get install --no-install-recommends debootstrap
 -   $ sudo passwd
--   passwd config
--   passwd confirm
+-   password config
+-   password confirm
 -   $ ctrl +alt + F1
 -   Start as root
 
