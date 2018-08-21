@@ -1,7 +1,7 @@
 # Debootstrap-Minimal
 Install Ubuntu-16.04.4, Minimal.
 ================================
-*   Load ubuntu-mate-16.04.4-desktop-i386 with
+-   Load ubuntu-mate-16.04.4-desktop-i386 with
 Oracle Virtual Box Wm
 -   Setup Oracle VM VirtualBox:
 -   It is understood that you are connected to the internet.
