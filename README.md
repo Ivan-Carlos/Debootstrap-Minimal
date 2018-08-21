@@ -4,6 +4,7 @@ Install Ubuntu-16.04.4, Minimal.
 *   Load ubuntu-mate-16.04.4-desktop-i386 with
 Oracle Virtual Box Wm
 -   Setup Oracle VM VirtualBox:
+-   It is understood that you are connected to the internet.
 -   Oracle VM VirtualBox => Manager => Settings => System =>:
 -   ![techbox_5](images/techbox_5.PNG)
 -   Oracle VM VirtualBox => Manager => Settings => Storage =>:
