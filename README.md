@@ -120,7 +120,7 @@ Oracle Virtual Box Wm
 
 -   Remember: You are in this Virtual Box Wm, if it is not, the following step can cause problems in your boot.
 
--   $ apt-get install --no-install-recommends initramfs-tools linux-image-extra-4.4.0.21-generic init grup-pc
+-   $ apt-get install --no-install-recommends initramfs-tools linux-image-extra-4.4.0.21-generic grub-pc
 
 -   In the box grub-pc make the first two options
 
