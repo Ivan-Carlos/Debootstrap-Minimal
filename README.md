@@ -89,14 +89,22 @@ Oracle Virtual Box Wm
 
 -   $ apt-get install --no-install-recommends sudo
 -   $ adduser user
--   password config
--   password confirm
+-   Adding user `user' ...
+-   Adding new group `ivan' (1000) ...
+-   Adding new user `ivan' (1000) with group `ivan' ...
+-   Creating home directory `/home/ivan' ...
+-   Copying files from `/etc/skel' ...
+-   Enter new UNIX password: 
+-   Retype new UNIX password: 
+-   passwd: password updated successfully
+-   Changing the user information for ivan
+-   Enter the new value, or press ENTER for the default
 -   Full Name [ ]: user
 -   Room Number [ ]: enter
 -   Work Phone [ ]: enter
 -   Home Phone [ ]: enter
 -   Other [ ]: enter
--   Is the information correct [Y/n}: y
+-   Is the information? correct [Y/n}: y
 
 -   $ apt-get autoclean
 -   $ usermod -a -G sudo user
