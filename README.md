@@ -30,6 +30,8 @@ Oracle Virtual Box Wm
 -   
       ctrl +alt + F1
 -   Start as root
+-
+      sudo su
 
 -   
       cfdisk /dev/sda
