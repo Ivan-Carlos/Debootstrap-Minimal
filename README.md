@@ -19,17 +19,21 @@ Oracle Virtual Box Wm
 
 
 
--   $ sudo apt-get update
--   $ sudo apt-get install --no-install-recommends git
--   $ sudo apt-get install --no-install-recommends debootstrap
--   $ sudo passwd
+-   
+      sudo apt-get update
+-   
+      sudo apt-get install --no-install-recommends debootstrap
+-   
+      sudo passwd
 -   password config
 -   password confirm
--   $ ctrl +alt + F1
+-   
+      ctrl +alt + F1
 -   Start as root
 
--   $ cfdisk /dev/sda
--   Select label type: [dos]
+-   
+      cfdisk /dev/sda
+-   Select label type: [vfat]
 -   Select option: [new]
 -   Partition size:532M
 -   [Primary}
@@ -39,65 +43,90 @@ Oracle Virtual Box Wm
 -   Select option [new]
 -   Partition size:503M
 -   [Primary}
--   Add [Type] /dev/sda1 =>b W95 VFAT32
+-   Add [Type] /dev/sda1 => ext2
 -   Add [Bootable] /dev/sda1
 -   Add [Type] /dev/sda3 =>82 LINUX SWAP/SOLARIS
 -   [Write]
 -   [Quit]
 -   ![techbox_9](images/techbox_9.PNG)
 
--   $ mkswap /dev/sda3
--   $ mkfs.ext4 /dev/sda2
--   $ mkfs.vfat /dev/sda1
--   $ mkdir -p /target 
--   $ mount -t ext4 -o rw /dev/sda2 /target
--   $ cd /target 
--   $ debootstrap --variant=minbase xenial /target 
--   $ mount -t vfat -o rw /dev/sda1 /target/boot
--   $ cd /target/root
--   $ git clone https://github.com/Ivan-Carlos/Debootstrap-Minimal
--   $ cd ..
--   $ mv /target/etc/apt/sources.list /target/etc/apt/sources.list.bk
--   $ cp -a /etc/apt/sources.list /target/etc/apt/
--   $ nano /target/etc/apt/sources.list
+- 
+      mkswap /dev/sda3
+-   
+      mkfs.ext4 /dev/sda2
+-   
+      mkfs.ext2 /dev/sda1
+-   
+      mkdir -p /target/boot 
+-   
+      mount -t ext4 -o rw /dev/sda2 /target
+-
+      mount -t ext2 -o rw /dev/sda1 /target/boot
+-   
+      cd /target 
+-   
+      debootstrap --variant=minbase xenial /target 
+-   
+      cd /target/root
+-   
+      sudo wget https://raw.githubusercontent.com/Ivan-Carlos/Debootstrap-Minimal/master/chroot-wrapper.sh
+-   
+      cd ..
+-   
+      mv /target/etc/apt/sources.list /target/etc/apt/sources.list.bk
+-   
+      cp -a /etc/apt/sources.list /target/etc/apt/
+-   
+      nano /target/etc/apt/sources.list
 -   Coment first line with #
 -   deb cdrom:[Ubuntu-Mate 16.04.4 LTS_Xenial Xerus_$
 -   ctrl + x
 -   y + enter  
 
--   $ chmod a+x /target/root/Debootstrap-Minimal/chroot-wrapper.sh
--   $ /target/root/Debootstrap-Minimal/chroot-wrappper.sh /target 
--   $ apt-get update
--   $ apt-get install --no-install-recommends netbase 
--   $ apt-get install --no-install-recommends apt-utils dialog
--   $ apt-get install --no-install-recommends iputils-ping
--   $ apt-get install --no-install-recommends apt-file
--   $ apt-file update
--   $ apt-file search bin/ifconfig
--   $ apt-get install --no-install-recommends net-tools
--   $ apt-get install --no-install-recommends ifupdown
--   $ apt-get install --no-install-recommends isc-dhcp-client
--   $ apt-get install --no-install-recommends resolvconf
--   $ apt-get install --no-install-recommends nano
--   $ apt-get install --no-install-recommends network-manager
--   $ hostname
--   $ nano /etc/hosts
+-   
+      chmod a+x /target/root/chroot-wrapper.sh
+-    
+      /target/root/chroot-wrappper.sh /target 
+-   
+      apt-get update
+-   
+      apt-get install --no-install-recommends netbase 
+-   
+      apt-get install --no-install-recommends apt-utils dialog
+-   
+      apt-get install --no-install-recommends iputils-ping
+-   
+      apt-get install --no-install-recommends apt-file
+-   
+      apt-file update
+-  
+      apt-file search bin/ifconfig
+-  
+      apt-get install --no-install-recommends net-tools
+-   
+      apt-get install --no-install-recommends ifupdown
+-  
+      apt-get install --no-install-recommends isc-dhcp-client
+-  
+      apt-get install --no-install-recommends resolvconf
+-  
+      apt-get install --no-install-recommends nano
+-   
+      apt-get install --no-install-recommends network-manager
+-  
+      hostname
+-   
+      nano /etc/hosts
 -   127.0.0.1 localhost
 -   127.0.1.1 ubuntu-mate
 -   ctrl + x
 -   y + enter
 
--   $ apt-get install --no-install-recommends sudo
--   $ adduser user
--   Adding user `user' ...
--   Adding new group `use' (1000) ...
--   Adding new user `user' (1000) with group `ivan' ...
--   Creating home directory `/home/user' ...
--   Copying files from `/etc/skel' ...
--   Enter new UNIX password: 
--   Retype new UNIX password: 
--   passwd: password updated successfully
--   Changing the user information for user
+-   
+      apt-get install --no-install-recommends sudo
+-
+      adduser "user"
+-   Changing the "user" information for "user"
 -   Enter the new value, or press ENTER for the default
 -   Full Name [ ]: user
 -   Room Number [ ]: enter
@@ -106,13 +135,18 @@ Oracle Virtual Box Wm
 -   Other [ ]: enter
 -   Is the information? correct [Y/n}: y
 
--   $ apt-get autoclean
--   $ usermod -a -G sudo user
--   $ groups user
+-   
+      apt-get autoclean
+-   
+      usermod -a -G sudo "user"
+-   
+      groups "user"
 -   user : user sudo
 
--   $ blkid > fstab
--   $ nano /etc/fstab
+-   
+      blkid > fstab
+-   
+      nano /etc/fstab
 -   ctrl + k
 -   ctrl + r
 -   type:/root/fstab
@@ -128,15 +162,19 @@ Oracle Virtual Box Wm
 
 -   Remember: You are in this Virtual Box Wm, if it is not, the following step can cause problems in your boot.
 
--   $ apt-get install --no-install-recommends initramfs-tools linux-image-extra-4.4.0.21-generic grub-pc
+-  
+      apt-get install --no-install-recommends initramfs-tools linux-image-extra-4.4.0.21-generic grub-pc
 
 -   In the box grub-pc make the first two options
 
--   $ passwd
+-   
+      passwd
 -   password config
 -   password confirm
 
 -   Optional
--   $ update-initramfs -u -k all
--   $ shutdown -r now
+-   
+      update-initramfs -u -k all
+-   
+      shutdown -r now
 
