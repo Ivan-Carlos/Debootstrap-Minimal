@@ -71,7 +71,7 @@ Oracle Virtual Box Wm
 -   
       cd /target/root
 -   
-      sudo wget https://raw.githubusercontent.com/Ivan-Carlos/Debootstrap-Minimal/master/chroot-wrapper.sh
+      sudo wget https://raw.github.com/Ivan-Carlos/Debootstrap-Minimal/master/chroot-wrapper.sh
 -   
       cd ..
 -   
